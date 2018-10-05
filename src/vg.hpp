@@ -73,7 +73,7 @@ namespace vg {
 /**
  * Represents a variation graph. Graphs consist of nodes, connected by edges.
  * Graphs are bidirected and may be cyclic. Nodes carry forward-oriented
- * sequences. Edges are directed, with a "from" and to" node, and are generally
+ * sequences. Edges are directed, with a "from" and "to" node, and are generally
  * used to connect the end of the "from" node to the start of the "to" node.
  * However, edges can connect to either the start or end of either node.
  *
@@ -154,10 +154,10 @@ public:
     /// Get a handle to the last occurrence in a path
     virtual occurrence_handle_t get_last_occurrence(const path_handle_t& path_handle) const;
     
-    /// Returns true if the occurrence is not the last occurence on the path, else false
+    /// Returns true if the occurrence is not the last occurrence on the path, else false
     virtual bool has_next_occurrence(const occurrence_handle_t& occurrence_handle) const;
     
-    /// Returns true if the occurrence is not the first occurence on the path, else false
+    /// Returns true if the occurrence is not the first occurrence on the path, else false
     virtual bool has_previous_occurrence(const occurrence_handle_t& occurrence_handle) const;
     
     /// Returns a handle to the next occurrence on the path
@@ -567,7 +567,7 @@ public:
     /// embedding in the modified graph. If save_paths is true, the paths as
     /// embedded in the graph will be added to the graph's set of paths. If
     /// break_at_ends is true (or save_paths is true), nodes will be broken at
-    /// the ends of paths that start/end woth perfect matches, so the paths can
+    /// the ends of paths that start/end with perfect matches, so the paths can
     /// be added to the vg graph's paths object.
     vector<Translation> edit(vector<Path>& paths_to_add, bool save_paths = false,
         bool update_paths = false, bool break_at_ends = false);
@@ -598,7 +598,7 @@ public:
     /// start (which may include 0 and 1-past-the-end, which should be ignored),
     /// break the specified nodes at those positions. Returns a map from old
     /// node start position to new node pointer in the graph. Note that the
-    /// caller will have to crear and rebuild path rank data.
+    /// caller will have to clear and rebuild path rank data.
     ///
     /// Returns a map from old node start position to new node. This map
     /// contains some entries pointing to null, for positions past the ends of
@@ -797,7 +797,7 @@ public:
     /// from one such node, until all nodes have been visited in each
     /// orientation.
     void dfs(
-        /// Called when node orientattion is first encountered.
+        /// Called when node orientation is first encountered.
         const function<void(NodeTraversal)>& node_begin_fn,
         /// Called when node orientation goes out of scope.
         const function<void(NodeTraversal)>& node_end_fn,
@@ -919,7 +919,7 @@ public:
     /// untraversable until the indexes are rebuilt.
     void unindex_edge_by_node_sides(Edge* edge);
     /// Add an edge to the node side indexes. Doesn't touch the index of edges by
-    /// node pairs or the graph; those must be updated seperately.
+    /// node pairs or the graph; those must be updated separately.
     void index_edge_by_node_sides(Edge* edge);
     /// Get the edge between the given node sides, which can be in either order.
     bool has_edge(const NodeSide& side1, const NodeSide& side2);
@@ -1308,7 +1308,7 @@ public:
     /// end_node is null, a new node will be created. Otherwise, the passed node
     /// will be used. Note that this visits every node, to make sure it is
     /// attached to all connected components. Note that if a graph has, say,
-    /// heads but no tails, the start node will be attached buut the end node
+    /// heads but no tails, the start node will be attached but the end node
     /// will be free-floating.
     void add_start_end_markers(int length,
                                char start_char, char end_char,
