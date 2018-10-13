@@ -209,7 +209,7 @@ private:
     /**
      * Given a vector of lists of VariantAllele edits that have been trimmed
      * with trim_to_variable() above, one per non-reference alt for a variant,
-     * return the position of the first varaible base, and the position of the
+     * return the position of the first variable base, and the position of the
      * last variable base. If there's no variable-region, the result is max
      * int64_t and -1, and if there's a 0-length variable region, the result is
      * the base after it and the base before it.

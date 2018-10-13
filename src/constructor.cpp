@@ -1116,7 +1116,7 @@ namespace vg {
                             if(chain_deletions && possible_end > 0 && !explored_ends.count(possible_end)) {
                                 // Queue it up if not already queued. If we aren't
                                 // chaining deletions, we'll only look at the starts
-                                // accessible from the root of our searcj.
+                                // accessible from the root of our search.
                                 possible_ends.push_back(possible_end);
                                 explored_ends.insert(possible_end);
                             }
@@ -1242,7 +1242,7 @@ namespace vg {
         cerr << "building contig for chunk of reference " << reference_contig << " in interval " << leading_offset << " to " << reference_end << endl;
 #endif
 
-        // Set up a progress bar thhrough the chromosome
+        // Set up a progress bar through the chromosome
         create_progress("building graph for " + vcf_contig, reference_end - leading_offset);
 
         // Scan through variants until we find one that is on this contig and in this region.
